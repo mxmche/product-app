@@ -2,15 +2,19 @@ import { makeObservable, observable, computed, action } from 'mobx'
 
 export default class Cart {
 
+    tip = 0
+
     orders = []
 
     constructor() {
         makeObservable(this, {
             orders: observable,
+            tip: observable,
             totalSum: computed,
             totalCount: computed,
             addToCart: action,
-            deleteOrder: action
+            deleteOrder: action,
+            applyTip: action
         })
     }
 
@@ -20,6 +24,11 @@ export default class Cart {
         this.orders.forEach(order => {
             sum += order.cost * order.count
         })
+
+        if (this.tip > 0) {
+            const tip = sum * this.tip
+            sum += tip
+        }
 
         return sum
     }
@@ -32,6 +41,10 @@ export default class Cart {
         })
 
         return count
+    }
+
+    applyTip(needToAdd) {
+        this.tip = needToAdd ? 0.1 : 0
     }
 
     addToCart(item) {

@@ -3,10 +3,17 @@ import { observer } from 'mobx-react'
 import { v4 as uuidv4 } from 'uuid'
 
 const OrderList = observer(({ cart }) => {
+
+    const onClickTip = (e) => {
+        cart.applyTip(e.target.checked)
+    }
+
     if (cart.orders.length > 0) {
         return (
             <>
                 <div>{cart.totalCount} order(s) in cart.</div>
+                <input type='checkbox' onClick={onClickTip} />
+                <label>Include tip?</label>
                 <ol>
                     {cart.orders.map(item => {
                         return (
