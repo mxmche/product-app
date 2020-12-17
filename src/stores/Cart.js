@@ -14,7 +14,9 @@ export default class Cart {
             totalCount: computed,
             addToCart: action,
             deleteOrder: action,
-            applyTip: action
+            applyTip: action,
+            addCount: action,
+            deleteCount: action
         })
     }
 
@@ -60,5 +62,20 @@ export default class Cart {
     deleteOrder(id) {
         const index = this.orders.findIndex(order => order.id === id)
         this.orders.splice(index, 1)
+    }
+
+    addCount(id) {
+        const orderIndex = this.orders.findIndex(order => order.id === id)
+        this.orders[orderIndex].count++
+    }
+
+    deleteCount(id) {
+        const orderIndex = this.orders.findIndex(order => order.id === id)
+
+        this.orders[orderIndex].count--
+
+        if (this.orders[orderIndex].count === 0) {
+            this.orders.splice(orderIndex, 1)
+        }
     }
 }

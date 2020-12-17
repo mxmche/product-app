@@ -18,7 +18,7 @@ const OrderList = observer(({ cart }) => {
                     {cart.orders.map(item => {
                         return (
                             <li key={uuidv4()}>
-                                {item.name} {item.count ? `x${item.count}` : ''}
+                                {item.name} <button onClick={() => { cart.addCount(item.id) }}>+</button> {item.count} <button onClick={() => { cart.deleteCount(item.id) }}>-</button> {/*item.count ? `x${item.count}` : ''*/}
                                 <button onClick={() => { cart.deleteOrder(item.id) }}>Delete</button>
                             </li>
                         )

@@ -6,9 +6,10 @@ export default class Product {
     searchText = ''
 
     items = [
-        { id: 1, name: 'Coffee', cost: 100 },
-        { id: 2, name: 'Cake', cost: 80 },
-        { id: 3, name: 'Pasta', cost: 50 }
+        { id: uuidv4(), name: 'Coffee', cost: 100 },
+        { id: uuidv4(), name: 'Cake', cost: 80 },
+        { id: uuidv4(), name: 'Pasta', cost: 50 },
+        { id: uuidv4(), name: 'Burger', cost: 119 }
     ]
 
     constructor() {
