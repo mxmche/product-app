@@ -9,7 +9,8 @@ export default class Cart {
             orders: observable,
             totalSum: computed,
             totalCount: computed,
-            addToCart: action
+            addToCart: action,
+            deleteOrder: action
         })
     }
 
@@ -41,5 +42,10 @@ export default class Cart {
         } else {
             this.orders.push({ count: 1, ...item })
         }
+    }
+
+    deleteOrder(id) {
+        const index = this.orders.findIndex(order => order.id === id)
+        this.orders.splice(index, 1)
     }
 }
