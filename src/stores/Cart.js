@@ -7,12 +7,13 @@ export default class Cart {
     constructor() {
         makeObservable(this, {
             orders: observable,
-            total: computed,
+            totalSum: computed,
+            totalCount: computed,
             addToCart: action
         })
     }
 
-    get total() {
+    get totalSum() {
         let sum = 0
 
         this.orders.forEach(order => {
@@ -20,6 +21,16 @@ export default class Cart {
         })
 
         return sum
+    }
+
+    get totalCount() {
+        let count = 0
+
+        this.orders.forEach(order => {
+            count += order.count
+        })
+
+        return count
     }
 
     addToCart(item) {

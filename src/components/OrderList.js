@@ -6,11 +6,11 @@ const OrderList = observer(({ cart }) => {
     if (cart.orders.length > 0) {
         return (
             <>
-                <div>{cart.orders.length} orders in cart.</div>
+                <div>{cart.totalCount} order(s) in cart.</div>
                 <ol>
                     {cart.orders.map(item => <li key={uuidv4()}>{item.name} {item.count ? `x${item.count}` : ''}</li>)}
                 </ol>
-                <div><b>Total</b>: {cart.total}</div>
+                <div><b>Total</b>: {cart.totalSum}</div>
             </>
         )
     }

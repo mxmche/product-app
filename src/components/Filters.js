@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Filters = (props) => {
+const Filters = ({ products }) => {
+
     const onFilter = ({ target: { value } }) => {
-        props.products.filterProducts(value)
+        products.filterProducts(value)
     }
 
     return (
