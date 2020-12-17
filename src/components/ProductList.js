@@ -12,7 +12,7 @@ const ProductList = observer(({ products, cart }) => {
                 </tr>
             </thead>
             <tbody>
-                {products.map(item => <ProductItem item={item} cart={cart} /> )}
+                {products.filtered.map(item => <ProductItem key={item.id} item={item} cart={cart} /> )}
             </tbody>
         </table>
     )

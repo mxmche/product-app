@@ -1,19 +1,17 @@
 import ProductList from './components/ProductList'
 import OrderList from './components/OrderList'
+import Filters from './components/Filters'
 import Cart from './stores/Cart'
-
-const products = [
-    { id: 1, name: 'Coffee', cost: 100 },
-    { id: 2, name: 'Cake', cost: 80 },
-    { id: 3, name: 'Pasta', cost: 50 }
-]
+import Product from './stores/Product'
 
 const cart = new Cart()
+const productStore = new Product()
 
 function App() {
     return (
         <>
-            <ProductList products={products} cart={cart} />
+            <Filters products={productStore} />
+            <ProductList products={productStore} cart={cart} />
             <OrderList cart={cart} />
         </>
     )
