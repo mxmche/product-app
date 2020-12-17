@@ -20,11 +20,24 @@ class Cart {
     }
 
     get total() {
-        return this.orders.reduce((prev, current) => prev + current.cost, 0)
+        let sum = 0
+
+        this.orders.forEach(order => {
+            sum += order.cost * order.count
+        })
+
+        return sum
     }
 
     addToCart(item) {
-        this.orders.push(item)
+        const existedIndex = this.orders.findIndex(order => order.id === item.id)
+
+        if (existedIndex > -1) {
+            this.orders[existedIndex].count++
+        } else {
+            const newOrder = { count: 1, ...item }
+            this.orders.push(newOrder)
+        }
     }
 }
 

@@ -9,7 +9,7 @@ export default function ProductItem(props) {
         <tr key={props.item.id}>
             <td>{props.item.name}</td>
             <td>{props.item.cost}</td>
-            <td><button onClick={onAdd}>Add</button></td>
+            <td><button onClick={onAdd}>Add to cart</button></td>
         </tr>
     )
 }

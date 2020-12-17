@@ -1,7 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { v4 as uuidv4 } from 'uuid'
-
 import ProductItem from './ProductItem'
 
 const ProductList = observer(({ products, cart }) => {
@@ -19,9 +18,15 @@ const ProductList = observer(({ products, cart }) => {
                 </tbody>
             </table>
 
-            <div>{cart.orders.length} orders in cart.</div>
-            {cart.orders.map(item => <div key={uuidv4()}>{item.name}</div>)}
-            <div>Total: {cart.total}</div>
+            {cart.orders.length > 0 &&
+                <>
+                    <div>{cart.orders.length} orders in cart.</div>
+                    <ol>
+                        {cart.orders.map(item => <li key={uuidv4()}>{item.name} {item.count ? `X${item.count}` : ''}</li>)}
+                    </ol>
+                    <div><b>Total</b>: {cart.total}</div>
+                </>
+            }
         </>
     )
 })
