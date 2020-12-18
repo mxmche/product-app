@@ -4,7 +4,7 @@ import ProductItem from './ProductItem'
 
 const ProductList = observer(({ products, cart }) => {
     return (
-        <table>
+        <table style={{ marginTop: '10px' }}>
             <thead>
                 <tr>
                     <th>Name</th>

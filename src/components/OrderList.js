@@ -10,7 +10,7 @@ const OrderList = observer(({ cart }) => {
 
     if (cart.orders.length > 0) {
         return (
-            <>
+            <div style={{ marginTop: '10px' }}>
                 <div>{cart.totalCount} order(s) in cart.</div>
                 <input type='checkbox' onClick={onClickTip} />
                 <label>Include tip?</label>
@@ -25,7 +25,7 @@ const OrderList = observer(({ cart }) => {
                     })}
                 </ol>
                 <div><b>Total</b>: {cart.totalSum}</div>
-            </>
+            </div>
         )
     }
 

@@ -12,13 +12,11 @@ const productStore = new Product()
 
 const App = () => {
     return (
-        <>
+        <div style={{ margin: '0 auto', width: '50%' }}>
             <Filters products={productStore} />
-            <hr/>
             <ProductView products={productStore} cart={cart} />
-            <hr/>
             <OrderList cart={cart} />
-        </>
+        </div>
     )
 }
 

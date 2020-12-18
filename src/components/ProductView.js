@@ -6,7 +6,6 @@ const ProductView = ({ products, cart }) => {
     return (
         <>
             <ProductList products={products} cart={cart} />
-            <hr/>
             <ProductForm products={products} />
         </>
     )

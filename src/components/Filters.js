@@ -7,10 +7,7 @@ const Filters = ({ products }) => {
     }
 
     return (
-        <>
-            <label>Search: </label>
-            <input onChange={onFilter} />
-        </>
+        <input placeholder='Type text to search...' onChange={onFilter} />
     )
 }
 

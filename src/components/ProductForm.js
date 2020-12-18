@@ -12,14 +12,23 @@ const ProductForm = ({ products }) => {
     }
 
     return (
-        <form>
+        <form style={{ marginTop: '10px' }}>
             <div>
-                <label>Name: </label>
-                <input value={name} onChange={(e) => { setName(e.target.value) }} />
+                <input
+                    placeholder='Enter name'
+                    value={name}
+                    onChange={(e) => { setName(e.target.value) }}
+                    style={{ marginBottom: '10px' }}
+                />
             </div>
             <div>
-                <label>Cost: </label>
-                <input type='number' value={cost} onChange={(e) => { setCost(e.target.value) }} />
+                <input
+                    type='number'
+                    placeholder='Enter cost'
+                    value={cost}
+                    onChange={(e) => { setCost(e.target.value) }}
+                    style={{ marginBottom: '10px' }}
+                />
             </div>
             <div>
                 <button onClick={onAdd}>Add</button>
